@@ -1,0 +1,362 @@
+body {
+  background-color: rgb(255, 255, 255);
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+  
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+  }
+
+  .content1 {
+    flex: 1;
+    padding: 20px;
+    width: calc(100% - 30px);
+    padding: 15px;
+    word-break: break-word;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    z-index: 0;
+  }
+  
+  .welcome-text {
+    color:rgb(63, 81, 89);
+    font-size: 32px;
+    font-family: 'Poppins';
+    font-weight: 800;
+    line-height: 37.02px;
+    letter-spacing: 1.92px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: Arial;
+  }
+  
+  .welcome-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh; /* Set max height relative to viewport height */
+    margin-top: 10px;
+    transition: max-width 0.5s ease, max-height 0.5s ease; /* Add transition for smooth resizing */
+  }
+  
+  @media screen and (min-width: 400px) {
+    .welcome-image {
+      max-width: 400px;
+      max-height: none; /* Reset max height for larger screens */
+    }
+  }
+  
+  .welcome-message {
+    color: rgba(0, 0, 0, 0.74);
+    font-size: 20px;
+    font-family: Arial;
+    font-weight: 400;
+    line-height: 27.44px;
+    letter-spacing: 1.20px;
+    word-wrap: break-word;
+    margin-top: 28px;
+
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+  }
+  
+  .input-field {
+    position: relative;
+    width: 346px;
+    height: 48px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  
+  input {
+    width: 100%;
+    height: 100%;
+    padding: 7px;
+    border: none;
+    background: rgba(88, 129, 87, 0.2);
+    border-radius: 18px;
+    color: rgba(0, 0, 0, 0.70);
+    font-size: 15px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    line-height: 20.58px;
+    letter-spacing: 0.90px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .input-label {
+    position: absolute;
+    top: 13px;
+    left: 32px;
+  }
+
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-40%);
+    cursor: pointer;
+    font-size: 15px;
+    color: #777; 
+  }
+  
+  .eye-icon:focus {
+    outline: none;
+  }
+  
+  .eye-icon:active {
+    outline: none;
+  }
+  
+  .forgot-password {
+    text-align: center;
+    color: #588157;
+    font-size: 15px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    
+    letter-spacing: 0.90px;
+    word-wrap: break-word;
+    margin-top: 10px;
+  }
+  
+  .login-button {
+    height: 62px;
+    width: 350px;
+    background: #00A871;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 24.69px;
+    letter-spacing: 1.08px;
+    word-wrap: break-word;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden; 
+    cursor: pointer; 
+    transition: 0.3s;
+    z-index: 1; 
+  }
+  
+  .login-button::before, .login-button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: rgb(63, 81, 89);
+    transition: 0.3s;
+  }
+  
+  .login-button::before {
+    top: -1em;
+    left: -1em;
+  }
+  
+  .login-button::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+  }
+  
+  .login-button:hover::before,
+  .login-button:hover::after {
+    height: 410px;
+    width: 410px;
+  }
+  
+  .login-button:active {
+    filter: brightness(0.8);
+    background-color: #466354;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .error-message {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --color: hsl(0, 0%, 33%);
+    --animation: 2s ease-in-out infinite;
+  }
+  
+  .loader .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: solid 2px var(--color);
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: transparent;
+    animation: circle-keys var(--animation);
+  }
+  
+  .loader .circle .dot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--color);
+    animation: dot-keys var(--animation);
+  }
+  
+  .loader .circle .outline {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: outline-keys var(--animation);
+  }
+  
+  .circle:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  
+  .circle:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  
+  .circle:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+  
+  .circle:nth-child(5) {
+    animation-delay: 1.2s;
+  }
+  
+  .circle:nth-child(2) .dot {
+    animation-delay: 0.3s;
+  }
+  
+  .circle:nth-child(3) .dot {
+    animation-delay: 0.6s;
+  }
+  
+  .circle:nth-child(4) .dot {
+    animation-delay: 0.9s;
+  }
+  
+  .circle:nth-child(5) .dot {
+    animation-delay: 1.2s;
+  }
+  
+  .circle:nth-child(1) .outline {
+    animation-delay: 0.9s;
+  }
+  
+  .circle:nth-child(2) .outline {
+    animation-delay: 1.2s;
+  }
+  
+  .circle:nth-child(3) .outline {
+    animation-delay: 1.5s;
+  }
+  
+  .circle:nth-child(4) .outline {
+    animation-delay: 1.8s;
+  }
+  
+  .circle:nth-child(5) .outline {
+    animation-delay: 2.1s;
+  }
+  
+  @keyframes circle-keys {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes dot-keys {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes outline-keys {
+    0% {
+      transform: scale(0);
+      outline: solid 20px var(--color);
+      outline-offset: 0;
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scale(1);
+      outline: solid 0 transparent;
+      outline-offset: 20px;
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    
+    .input-field {
+      width: 100%;
+    }
+  
+    .login-button,
+    .login-button::before,
+    .login-button::after {
+      width: 100%;
+    }
+  }
+  
